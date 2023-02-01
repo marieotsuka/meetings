@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Meeting Organizer</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<script src="assets/scripts/script.js"></script>
+
+	<script>
+		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
+			':35729/livereload.js?snipver=1"></' + 'script>')
+		</script>
+	</head>
+	<body>
+		<header class="grid">
+			<h1>Class Meetings Organizer</h1>
+		</header>
+		<main>
+			<form id="form">
+				<fieldset class="inputs">
+					<legend>Specify settings</legend>
+					<div class="list-fields">			
+						<div class="field">
+							<label for="list">Student List</label>
+							<textarea id="list" required placeholder="1 name per line"></textarea>				 			
+						</div>
+						<div class="field">[<span id="peoplecount"> </span>] students</div>
+					</div>
+
+					<div class="org-fields">
+						<div class="field">
+							<input type="checkbox" id="randomize" checked>
+							<label for="randomize" class="radio-label">Randomize list</label>
+						</div>
+						<div>
+							<input type="radio" name="orgtype" id="individual" checked>
+							<label for="individual" class="radio-label">Individual</label>
+						</div>
+						<div class="field">
+							<input type="radio" name="orgtype" id="group">
+							<label for="group" class="radio-label">Group</label>
+							<div class="groupcount-field field">
+								<label for="groupcount" class="radio-label">into </label>
+								<input type="number" id="groupcount" min="2" max=""> sections		
+							</div>			 				
+						</div>
+
+
+						<div class="field">
+							<label for="time-from">From</label>
+							<input type="time" id="time-from" value="13:00">
+						</div>
+
+						<div class="field">
+							<label for="time-to">To</label>
+							<input type="time" id="time-to" value="15:00">
+						</div>
+
+						<div class="field">
+							<label for="time-break">Include</label>	
+							<input type="number" id="breakcount" min="0" max="">
+							break(s) for
+							<div class="breakduration-field field">
+								<input type="number" id="breakduration" min="0" max="" value="10" placeholder="10">
+								min
+							</div>
+						</div>
+
+						<button type="submit" id="calculate">Generate Schedule</button>
+
+					</fieldset>		
+				</form>
+
+				<fieldset id="result">
+					<legend>Schedule Results</legend>
+					<p>[<span id="crit-duration"></span>] min per meeting</p>
+					<p id="group-result"></p>
+					<textarea id="schedule"></textarea>
+				</fieldset>
+
+
+			</main>
+			<footer class="grid subtext">
+				<div class="contact">
+					<h4>About</h4>
+					<p>A simple tool for class organization. No inputs are saved or tracked. Read more <a href="https://github.com/marieotsuka/meetings">Github</a>.</p>
+				</div>
+			</footer>
+	</body>
+</html>
