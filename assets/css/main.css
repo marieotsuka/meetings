@@ -82,7 +82,7 @@ input[type=number] {
   width: 40px;
 }
 
-.groupcount-field, .breakmin-field {
+.groupcount-field, .breakduration-field {
   display: inline-block;
 }
 
